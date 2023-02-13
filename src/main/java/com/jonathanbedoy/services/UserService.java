@@ -1,5 +1,6 @@
 package com.jonathanbedoy.services;
 
+import com.jonathanbedoy.dtos.LoginRequest;
 import com.jonathanbedoy.models.User;
 import com.jonathanbedoy.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,16 @@ public class UserService {
     public boolean removeUserById(Long id) {
         urepo.deleteById(id);
         return true;
+    }
+
+    public String login(LoginRequest loginRequest) {
+        User user = urepo.findByEmail(loginRequest.getEmail());
+
+        if (user == null) return null;
+
+        if (user.getPassword().equals(loginRequest.getPassword())) {
+            return "A token placed here";
+        }
+        return null;
     }
 }

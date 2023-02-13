@@ -1,5 +1,6 @@
 package com.jonathanbedoy.controllers;
 
+import com.jonathanbedoy.dtos.LoginRequest;
 import com.jonathanbedoy.models.User;
 import com.jonathanbedoy.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUser(@RequestParam Long id) {
+    public User getUser(@PathVariable Long id) {
         return uService.findUserById(id);
     }
 
@@ -27,7 +28,14 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public Boolean deleteUser(@RequestParam Long id) {
+    public Boolean deleteUser(@PathVariable Long id) {
         return uService.removeUserById(id);
     }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest) {
+        return uService.login(loginRequest);
+    }
+
+
 }

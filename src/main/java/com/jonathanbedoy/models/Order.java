@@ -12,9 +12,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @ManyToOne
+    private User user;
     private String date;
     private double price;
     private String productName;
-    private double total;
+//    private double total;
 }
