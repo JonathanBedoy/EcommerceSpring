@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
     private final UserService uService;
 
@@ -33,7 +34,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
+    public User login(@RequestBody LoginRequest loginRequest) {
         return uService.login(loginRequest);
     }
 

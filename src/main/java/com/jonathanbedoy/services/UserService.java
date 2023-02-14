@@ -28,13 +28,13 @@ public class UserService {
         return true;
     }
 
-    public String login(LoginRequest loginRequest) {
+    public User login(LoginRequest loginRequest) {
         User user = urepo.findByEmail(loginRequest.getEmail());
 
         if (user == null) return null;
 
         if (user.getPassword().equals(loginRequest.getPassword())) {
-            return "A token placed here";
+            return user;
         }
         return null;
     }

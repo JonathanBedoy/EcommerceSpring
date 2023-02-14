@@ -1,9 +1,13 @@
 package com.jonathanbedoy.services;
 
+import com.jonathanbedoy.models.Item;
 import com.jonathanbedoy.models.Order;
 import com.jonathanbedoy.repositories.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -12,6 +16,10 @@ public class OrderService {
     private final OrderRepository oRepo;
 
     public Order createOrder(Order order) {
+        List<Item> items = order.getItems();
+//        order.setItems(new ArrayList<>());
+//        oRepo.save(order);
+//        order.setItems(items);
         return oRepo.save(order);
     }
 
