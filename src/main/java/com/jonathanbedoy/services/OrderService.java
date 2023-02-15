@@ -4,6 +4,7 @@ import com.jonathanbedoy.models.Item;
 import com.jonathanbedoy.models.Order;
 import com.jonathanbedoy.repositories.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
-
+    @Autowired
     private final OrderRepository oRepo;
 
     public Order createOrder(Order order) {

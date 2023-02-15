@@ -3,6 +3,7 @@ package com.jonathanbedoy.controllers;
 import com.jonathanbedoy.models.Order;
 import com.jonathanbedoy.services.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("http://localhost:4200")
 
 public class OrderController {
-
+    @Autowired
     private final OrderService oService;
 
     @PostMapping
