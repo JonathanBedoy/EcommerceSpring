@@ -17,7 +17,7 @@ public class OrderService {
     private final OrderRepository oRepo;
 
     public Order createOrder(Order order) {
-        List<Item> items = order.getItems();
+//        List<Item> items = order.getItems();
 //        order.setItems(new ArrayList<>());
 //        oRepo.save(order);
 //        order.setItems(items);
